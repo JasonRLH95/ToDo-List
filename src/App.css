@@ -1,0 +1,177 @@
+
+body{
+  background-image: linear-gradient(purple,rgb(69, 1, 69), darkblue,blue);
+  background-size: cover;
+  min-height: 100vh;
+  background-repeat: no-repeat;
+  margin: 0;
+  overscroll-behavior: none;
+  color: white;
+}
+.quote_container{
+  border: 1px solid black;
+  min-height: 130px;
+  height: 15vh;
+  display: flex;
+  overflow: hidden;
+}
+.quote_button{
+  width: 8.5%;
+  font-weight: bold;
+  font-size: 24px;
+  border-right: 1px solid black;
+}
+.quote_button:hover{
+  color: rgb(6, 6, 49);
+}
+.quoteDiv{
+  width: 75%;
+  height: 70%;
+  margin: 3vh 0 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.quote{
+  display: inline-block;
+  margin: 0;
+  font-size: 21px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.author{
+  display: inline-block;
+  margin: 0;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.logoPic{
+  background: url("./assets/todo_logo.png");
+  width: 16.5%;
+  min-height: 130px;
+  height: 15vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-left: 1px solid black;
+}
+.container {
+  min-width: 500px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 20px auto 70px;
+  padding: 50px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid black;
+  background-color: rgb(6, 6, 49);
+  box-shadow: 0px 0px 25px grey;
+  border-radius: 25px;
+}
+.upperSection{
+  display: flex;
+  flex-direction: row;
+  width: 70%;
+  height: fit-content;
+  justify-content: space-between;
+}
+.input-container {
+  display: flex;
+  width: 400px;
+  min-height: 50px;
+  max-height: 100px;
+  height: 50px;
+  margin-bottom: 20px;
+  transition: all 0.1s ease-in-out;
+}
+.addTask_button{
+  width: 50%;
+  height: 100%;
+  font-weight: bold;
+  font-size: 22px;
+}
+.addTask_div{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  transition: width 0.4s ease;
+}
+.addTask_div button{
+  width: 15%;
+  height: 100%;
+}
+.addTask_div button:hover{
+  color: rgb(6, 6, 49);
+  font-size: 18px;
+  font-weight: bold;
+  text-shadow: 1px 1px 4px whitesmoke;
+}
+.addTask_inputs_div{
+  width: 80%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+input {
+  padding: 8px;
+  width: 70%;
+}
+button {
+  cursor: pointer;
+  background: blue;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+}
+.filter_select{
+  width: 20%;
+  height: 50px;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+}
+option{
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+}
+ul {
+  list-style: none;
+  padding: 0;
+  width: 70%;
+}
+li {
+  display: flex;
+  flex-direction: column;
+  padding: 14px 8px;
+  border: 1px solid #ddd;
+  margin-bottom: 5px;
+  text-indent: 10px;
+}
+.completed {
+  text-decoration: line-through;
+  opacity: 60%;
+  color: gray;
+}
+.taskContainer{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.taskSubject{
+  width: 80%;
+  font-size: 21px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.task_marks{
+  width: 20%;
+  display: flex;
+  justify-content: space-evenly;
+}
+.task_desc{
+  font-size: 15px;
+}
