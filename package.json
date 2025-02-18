@@ -1,9 +1,11 @@
 {
   "name": "my-todo-app",
   "private": true,
+  "homepage": "https://jasonrlh95.github.io/ToDo-List/",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "deploy": "gh-pages -d dist",
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
@@ -11,6 +13,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "gh-pages": "^6.3.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
