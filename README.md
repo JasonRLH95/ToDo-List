@@ -1,50 +1,71 @@
-# React + TypeScript + Vite
+To-Do List App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Overview
 
-Currently, two official plugins are available:
+This is a simple To-Do List application built with React, Vite, and TypeScript. The app allows users to add, complete, delete tasks, and filter tasks based on their completion status. Additionally, deleted tasks are stored in a history section. The app also fetches and displays a random quote using the site qapi.vercel.app Quotes API.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Features
 
-## Expanding the ESLint configuration
+• Add new tasks with a description
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+• Mark tasks as complete or incomplete
 
-- Configure the top-level `parserOptions` property like this:
+• Delete tasks (moves them to history)
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+• Filter tasks by status: All, Open, Close, History
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+• Fetches a motivational quote
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+• Tasks and history are stored in Local Storage
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+• Smooth UI transitions when adding tasks
+
+
+
+
+Technologies Used
+
+• React
+
+• Vite
+
+• TypeScript
+
+• Local Storage
+
+• site qapi.vercel.app Quotes API
+
+
+
+Usage
+
+1. Click the "New Task" button to add a new task.
+
+2. Enter a task name and description, then click "Add".
+
+3. Click on a task to mark it as complete or incomplete.
+
+4. Click the task subject to toggle the task description.
+
+5. Click ❌ to delete a task (it moves to history).
+
+6. Use the dropdown to filter tasks by All, Open, Close, or History.
+
+
+API Integration
+
+This app fetches a random motivational quote using the site qapi.vercel.app Quotes API.
+No need of an API key.
+
+
+
+License
+
+This project is open-source and available for modification and use.
+
+Screenshots
+
+![alt text](image.png)
+![alt text](image-1.png)
+![alt text](image-2.png)
+![alt text](image-3.png)
