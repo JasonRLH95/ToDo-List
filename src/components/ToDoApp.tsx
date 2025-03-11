@@ -9,6 +9,7 @@ interface Task {
     subject: string;
     desc: string,
     completed: boolean;
+    inHistory: boolean;
     showDesc: boolean;
 }
 
@@ -65,7 +66,7 @@ const ToDoApp: React.FC = () => {
             </div>
             <ul>
                 {filteredTasks.length>0 ? filteredTasks.map((task) => (
-                    <TaskItem key={task.id} task={task} tasks={tasks} setTasks={setTasks} setHistory={setHistory}/>
+                    <TaskItem key={task.id} task={task} tasks={tasks} setTasks={setTasks} setHistory={setHistory} history={history}/>
                 )): <h1>Empty...</h1>}
             </ul>
         </div>

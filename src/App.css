@@ -1,33 +1,54 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Pirata+One&family=Quintessential&display=swap');
+
+
 body{
-  background-image: linear-gradient(purple,rgb(69, 1, 69), darkblue,blue);
+  background-image: url("./assets/dessert.jpg");
   background-size: cover;
-  min-height: 100vh;
+  background-position: fixed;
+  height: 160vh;
   background-repeat: no-repeat;
   margin: 0;
   overscroll-behavior: none;
   color: white;
+  transition: all 0.5s ease;
+  overflow-x: hidden;
+}
+body::-webkit-scrollbar{
+  background-color: #12343b;
+  width: 10px;
+}
+body::-webkit-scrollbar-thumb{
+  background-color: #c89666;
 }
 .quote_container{
   border: 1px solid black;
+  border-radius: 15px;
+  min-width: 500px;
+  max-width: 1200px;
+  margin: auto;
   min-height: 130px;
-  height: 15vh;
+  height: 35vh;
   display: flex;
+  flex-direction: column;
   overflow: hidden;
 }
 .quote_button{
-  width: 8.5%;
+  width: 100%;
+  height: 25%;
   font-weight: bold;
   font-size: 24px;
   border-right: 1px solid black;
+  overflow: hidden;
 }
-.quote_button:hover{
-  color: rgb(6, 6, 49);
+.quote_subContainer{
+  display: flex;
+  flex-direction: row;
+  height: 75%;
 }
 .quoteDiv{
-  width: 75%;
-  height: 70%;
-  margin: 3vh 0 0;
+  width: 85%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -45,47 +66,64 @@ body{
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 .logoPic{
-  background: url("./assets/todo_logo.png");
-  width: 16.5%;
+  background: url("./assets/JR_logo.png");
+  min-width: 180px;
+  width: 15%;
   min-height: 130px;
-  height: 15vh;
+  height: 100%;
   background-size: cover;
   background-repeat: no-repeat;
   border-left: 1px solid black;
+  cursor: pointer;
 }
+
 .container {
   min-width: 500px;
   width: 100%;
   max-width: 1200px;
+  height: fit-content;
+  max-height: 600px;
+  overflow: auto;
   margin: 20px auto 70px;
   padding: 50px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   border: 2px solid black;
-  background-color: rgb(6, 6, 49);
+  background-color: #e1b382;
   box-shadow: 0px 0px 25px grey;
   border-radius: 25px;
 }
+.container::-webkit-scrollbar{
+  color: #c89666;
+}
+.container h1{
+  font-family: "Pirata One", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 50px;
+  margin: 15px 0;
+  color: black;
+}
 .upperSection{
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   width: 70%;
   height: fit-content;
   justify-content: space-between;
 }
 .input-container {
   display: flex;
-  width: 400px;
+  width: 100%;
   min-height: 50px;
   max-height: 100px;
-  height: 50px;
+  height: fit-content;
   margin-bottom: 20px;
   transition: all 0.1s ease-in-out;
 }
 .addTask_button{
-  width: 50%;
-  height: 100%;
+  width: 100%;
+  height: 50px;
   font-weight: bold;
   font-size: 22px;
 }
@@ -93,22 +131,21 @@ body{
   width: 100%;
   height: 100%;
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: row;
   justify-content: space-between;
   transition: width 0.4s ease;
 }
 .addTask_div button{
-  width: 15%;
+  width: 25%;
   height: 100%;
+  font-size: 24px;
 }
 .addTask_div button:hover{
-  color: rgb(6, 6, 49);
-  font-size: 18px;
+  font-size: 28px;
   font-weight: bold;
-  text-shadow: 1px 1px 4px whitesmoke;
 }
 .addTask_inputs_div{
-  width: 80%;
+  width: 65%;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -120,17 +157,27 @@ input {
 }
 button {
   cursor: pointer;
-  background: blue;
-  color: white;
-  border: none;
+  background: #e1b382;
+  color: black;
   padding: 8px 12px;
+  border: 0.5px solid black;
+  font-family: "Quintessential", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+button:hover{
+  background-color: whitesmoke;
+  color: #c89666;
+  border: 1px solid #c89666;
+  text-shadow: 2px 2px 5px grey;
 }
 .filter_select{
-  width: 20%;
-  height: 50px;
+  width: 100%;
+  height: 40px;
   font-weight: bold;
   font-size: 16px;
   cursor: pointer;
+  margin-bottom: 30px;
 }
 option{
   font-weight: bold;
@@ -146,14 +193,15 @@ li {
   display: flex;
   flex-direction: column;
   padding: 14px 8px;
-  border: 1px solid #ddd;
+  border: 1px solid black;
   margin-bottom: 5px;
   text-indent: 10px;
 }
 .completed {
   text-decoration: line-through;
   opacity: 60%;
-  color: gray;
+  color: whitesmoke;
+  border: 1px solid grey;
 }
 .taskContainer{
   width: 100%;
@@ -162,16 +210,29 @@ li {
   justify-content: space-between;
 }
 .taskSubject{
-  width: 80%;
-  font-size: 21px;
+  width: 70%;
+  font-size: 24px;
   font-weight: bold;
   cursor: pointer;
+  color: black;
+  text-align: start;
 }
 .task_marks{
-  width: 20%;
+  width: 30%;
+  height: 40px;
   display: flex;
   justify-content: space-evenly;
 }
+.task_marks button:hover{
+  background-color: #c89666;
+  border: 1px solid black;
+}
 .task_desc{
-  font-size: 15px;
+  margin: 25px 5% 10px;
+  width: 90%;
+  font-size: 18px;
+  color: black;
+  text-indent: 0;
+  text-align: left;
+  word-break: break-all; 
 }

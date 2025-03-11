@@ -8,6 +8,8 @@ interface Props{
 }
 
 const Input: React.FC<Props> = ({setInput, value, placeholder}) => {
+
+  
   return (
     <input placeholder={placeholder} className="input" name="text" type="text" value={value} onChange={(e)=>{setInput(e.target.value)}}/>
   )

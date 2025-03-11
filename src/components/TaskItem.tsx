@@ -6,17 +6,19 @@ interface Task{
     subject: string;
     desc: string,
     completed: boolean;
+    inHistory: boolean;
     showDesc: boolean;
 }
 // define Props drilling types
 interface Props{
     task: Task;
-    setTasks:React.Dispatch<React.SetStateAction<Task[]>>,
-    tasks: Task[],
-    setHistory: React.Dispatch<React.SetStateAction<Task[]>>,
+    setTasks:React.Dispatch<React.SetStateAction<Task[]>>;
+    tasks: Task[];
+    setHistory: React.Dispatch<React.SetStateAction<Task[]>>;
+    history: Task[];
 }
 
-const Task: React.FC<Props> = ({task, tasks, setTasks, setHistory})=>{
+const Task: React.FC<Props> = ({task, tasks, setTasks, setHistory, history})=>{
 
     // execute task completion
     const doneTask = (id: number) => {
@@ -53,7 +55,11 @@ const Task: React.FC<Props> = ({task, tasks, setTasks, setHistory})=>{
         try{
             const taskToDelete = tasks.find(task => task.id === id);
             if (taskToDelete) {
-                setHistory((prevHistory) => [...prevHistory, taskToDelete]);
+                setHistory((prevHistory) => {
+                    taskToDelete.inHistory = true;
+                    taskToDelete.completed = false;
+                    return [...prevHistory, taskToDelete]
+                });
             }
             setTasks(tasks.filter((task) => task.id !== id));
         }
@@ -62,6 +68,10 @@ const Task: React.FC<Props> = ({task, tasks, setTasks, setHistory})=>{
             return alert("Error on trying delete task, please try again later");
         }
     };
+
+    const eraseTask = (id: number) => {
+        setHistory(history.filter((task) => task.id !== id));
+    }
 
 
     return(
@@ -72,13 +82,15 @@ const Task: React.FC<Props> = ({task, tasks, setTasks, setHistory})=>{
                     onClick={()=>openDescription(task.id)}>
                     {task.subject}
                 </div>
-                <div className="task_marks">
-                    <button onClick={() => doneTask(task.id)}>✔️</button>
-                    <button onClick={() => deleteTask(task.id)}>❌</button>
-                </div>
+                {!task.inHistory ? 
+                    <div className="task_marks">
+                        <button onClick={() => doneTask(task.id)}>✔️</button>
+                        <button onClick={() => deleteTask(task.id)}>❌</button>
+                    </div> : 
+                    <button onClick={() => eraseTask(task.id)}>❌</button>}
             </div>
             {task.showDesc && 
-                <div className="task_desc" >
+                <div className="task_desc">
                     {task.desc}
                 </div>
             }

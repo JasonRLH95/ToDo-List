@@ -7,12 +7,13 @@ interface Task {
     subject: string;
     desc: string,
     completed: boolean;
+    inHistory: boolean;
     showDesc: boolean;
 }
 // define Props drilling types
 interface Props{
-    setTasks:React.Dispatch<React.SetStateAction<Task[]>>,
-    tasks: Task[],
+    setTasks:React.Dispatch<React.SetStateAction<Task[]>>;
+    tasks: Task[];
 }
 
 const AddTaskForm: React.FC<Props> = ({setTasks, tasks}) => {
@@ -41,11 +42,15 @@ const AddTaskForm: React.FC<Props> = ({setTasks, tasks}) => {
                 alert("must fill all fields first!");
                 return;
             }
+            if(subject.length > 30){
+                return alert("Subject too long!");
+            }
             const newTask: Task = {
                 id: Date.now(),
                 subject,
                 desc,
                 completed: false,
+                inHistory: false,
                 showDesc: false,
             };
             setTasks([...tasks, newTask]);

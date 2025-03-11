@@ -25,12 +25,16 @@ const Quotes: React.FC = ()=>{
     }
     return(
         <div className="quote_container">
-            <button className="quote_button" onClick={()=>{fetchQuotes()}}>New Quote</button><br/>
-            <div className="quoteDiv">
-                <p className="quote">"{quote?.quote}"</p><br/>
-                <p className="author">-{quote?.author}-</p>
+            <button className="quote_button" onClick={()=>{fetchQuotes()}}>New Quote</button>
+            <div className="quote_subContainer">
+                <div className="quoteDiv">
+                    <p className="quote">"{quote?.quote}"</p><br/>
+                    <p className="author">-{quote?.author}-</p>
+                </div>
+                <a href="https://jasonrlh95.github.io/all_projects/" target="_blank">
+                    <div className="logoPic"></div>
+                </a>
             </div>
-            <div className="logoPic"></div>
         </div>
     );
 }
