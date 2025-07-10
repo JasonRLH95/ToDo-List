@@ -7,8 +7,8 @@ function App() {
 
   return (
     <>
-      <Quotes/>
-      <ToDoApp/>
+      <Quotes/> {/* upper quotes component */}
+      <ToDoApp/> {/* main todo list component */}
     </>
   )
 }

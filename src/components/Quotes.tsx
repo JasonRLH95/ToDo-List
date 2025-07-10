@@ -10,19 +10,29 @@ const Quotes: React.FC = ()=>{
     const [quote, setQuote] = useState<Quote | null>(null);
 
 
-    // first fetch of the quote
+    // first fetch of the quote when render App.js
     useEffect(()=>{
         fetchQuotes();
     },[])
 
     const fetchQuotes=()=>{
-        fetch("https://qapi.vercel.app/api/random")
+        fetch("https://api-get-quotes.vercel.app/api/v1/random")
         .then(response => response.json())
         .then(data => {
-            setQuote(data);
+            setQuote(data.quote);
         })
-        .catch(error => console.error("Error fetching quote:", error));
+        .catch(error => {
+            console.error("Error fetching quote:", error)
+            // set a default quote when fail to prevent client's bad experience
+            const defaultQuote = {
+                id: 112,
+                quote: "Life is what happens when you're busy making other plans.",
+                author: "John Lennon",
+            };
+            setQuote(defaultQuote);
+        });
     }
+
     return(
         <div className="quote_container">
             <button className="quote_button" onClick={()=>{fetchQuotes()}}>New Quote</button>

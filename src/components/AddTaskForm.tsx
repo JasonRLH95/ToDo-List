@@ -24,7 +24,7 @@ const AddTaskForm: React.FC<Props> = ({setTasks, tasks}) => {
 
     // catching the element to perform dynamic height changes
     var addTaskContainer = document.querySelector(".input-container") as HTMLElement | null;
-
+    
     // to make sure it's not null when initiate
     useLayoutEffect(()=>{
         try{

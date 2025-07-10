@@ -91,7 +91,7 @@ const Task: React.FC<Props> = ({task, tasks, setTasks, setHistory, history})=>{
             </div>
             {task.showDesc && 
                 <div className="task_desc">
-                    {task.desc}
+                    {task.desc ? task.desc : "- Empty -"}
                 </div>
             }
         </li>
